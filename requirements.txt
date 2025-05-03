@@ -1,0 +1,5 @@
+flask
+gunicorn
+pytesseract
+pillow
+firebase-admin
