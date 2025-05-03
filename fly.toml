@@ -1,14 +1,13 @@
-app = "kadabra-pricing-api"
-
-primary_region = "den"
+app = "colorado-plumbers-guild"
 
 [build]
+  image = "python:3.11"
 
 [env]
-  PORT = "8080"
+  PORT = "5000"
 
 [[services]]
-  internal_port = 8080
+  internal_port = 5000
   protocol = "tcp"
 
   [[services.ports]]
