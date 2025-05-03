@@ -1,11 +1,20 @@
 FROM python:3.10-slim
 
+# Set working directory
 WORKDIR /app
+
+# Install system dependencies
+RUN apt update && apt install -y \
+    tesseract-ocr \
+    libglib2.0-0 \
+    && apt clean
+
+# Copy files
 COPY . /app
 
-RUN apt update && apt install -y tesseract-ocr libglib2.0-0 && apt clean
-
-RUN pip install --upgrade pip && pip install -r requirements.txt
+# Install Python packages
+RUN pip install --upgrade pip
+RUN pip install -r requirements.txt
 
 EXPOSE 8080
 
