@@ -1,0 +1,10 @@
+# Command to resolve timeout issues with Fly.io deployment
+
+# Option 1: Deploy with maximum timeout and immediate strategy
+fly deploy --wait-timeout 1800 --strategy immediate --dockerfile Dockerfile
+
+# Option 2: Maximum timeout with specific region and more resources
+fly deploy --wait-timeout 1800 --strategy immediate --dockerfile Dockerfile --region sjc --vm-size performance-2x
+
+# Option 3: For complete control, use the launch command with maximum timeout
+fly launch --name ppb --dockerfile Dockerfile --region sjc --vm-size performance-2x --wait-timeout 1800
